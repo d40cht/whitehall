@@ -350,8 +350,16 @@ class EditionTest < ActiveSupport::TestCase
     NewsArticle.find(article.id).delete!
   end
 
+  test "should be invalid without a title" do
+    refute build(:edition, title: nil).valid?
+  end
+
   test "should be invalid without a summary" do
     refute build(:edition, summary: nil).valid?
+  end
+
+  test "should be invalid without a body" do
+    refute build(:edition, body: nil).valid?
   end
 
   test "generate title for a draft edition" do
@@ -649,9 +657,12 @@ class EditionTest < ActiveSupport::TestCase
   end
 
   test "should store title in multiple languages" do
-    edition = build(:edition)
-    with_locale(:en) { edition.title = 'english-title' }
-    with_locale(:es) { edition.title = 'spanish-title' }
+    edition = build(:edition, title: 'english-title')
+    with_locale(:es) do
+      edition.title = 'spanish-title'
+      edition.body = 'unimportant'
+      edition.summary = 'unimportant'
+    end
     edition.save!
     edition.reload
     assert_equal "english-title", edition.title(:en)
@@ -659,9 +670,12 @@ class EditionTest < ActiveSupport::TestCase
   end
 
   test "should only consider english titles when sorting editions alphabetically" do
-    edition = build(:edition)
-    with_locale(:en) { edition.title = "english-title-b" }
-    with_locale(:es) { edition.title = "spanish-title-b" }
+    edition = build(:edition, title: "english-title-b")
+    with_locale(:es) do
+      edition.title = 'spanish-title-b'
+      edition.body = 'unimportant'
+      edition.summary = 'unimportant'
+    end
     edition.save!
     with_locale(:es) { create(:edition, title: "spanish-title-a") }
     with_locale(:en) { create(:edition, title: "english-title-a") }
@@ -670,9 +684,12 @@ class EditionTest < ActiveSupport::TestCase
   end
 
   test "should only consider english titles for Edition.with_title_or_summary_containing" do
-    edition = build(:edition)
-    with_locale(:en) { edition.title = "english-title-b" }
-    with_locale(:es) { edition.title = "spanish-title-b" }
+    edition = build(:edition, title: "english-title-b")
+    with_locale(:es) do
+      edition.title = 'spanish-title-b'
+      edition.body = 'unimportant'
+      edition.summary = 'unimportant'
+    end
     edition.save!
     with_locale(:es) { create(:edition, title: "spanish-title-a") }
     with_locale(:en) { create(:edition, title: "english-title-a") }
@@ -681,9 +698,12 @@ class EditionTest < ActiveSupport::TestCase
   end
 
   test "should only consider english titles for Edition.with_title_containing" do
-    edition = build(:edition)
-    with_locale(:en) { edition.title = "english-title-b" }
-    with_locale(:es) { edition.title = "spanish-title-b" }
+    edition = build(:edition, title: "english-title-b")
+    with_locale(:es) do
+      edition.title = 'spanish-title-b'
+      edition.body = 'unimportant'
+      edition.summary = 'unimportant'
+    end
     edition.save!
     with_locale(:es) { create(:edition, title: "spanish-title-a") }
     with_locale(:en) { create(:edition, title: "english-title-a") }
@@ -693,7 +713,11 @@ class EditionTest < ActiveSupport::TestCase
 
   test "is available in multiple languages if more than one translation exist" do
     edition = build(:edition)
-    with_locale(:es) { edition.title = "spanish-title" }
+    with_locale(:es) do
+      edition.title = 'spanish-title-b'
+      edition.body = 'unimportant'
+      edition.summary = 'unimportant'
+    end
     edition.save!
     assert edition.available_in_multiple_languages?
   end
@@ -730,7 +754,11 @@ class EditionTest < ActiveSupport::TestCase
 
   test "returns non-english translations" do
     edition = build(:edition)
-    with_locale(:es) { edition.title = "spanish-title" }
+    with_locale(:es) do
+      edition.title = 'spanish-title'
+      edition.body = 'unimportant'
+      edition.summary = 'unimportant'
+    end
     edition.save!
     assert_equal 1, edition.non_english_translations.length
     assert_equal :es, edition.non_english_translations.first.locale

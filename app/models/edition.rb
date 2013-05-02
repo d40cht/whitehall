@@ -26,11 +26,12 @@ class Edition < ActiveRecord::Base
   has_many :featurings, class_name: "Feature"
 
   validates_with SafeHtmlValidator
-  validates :title, :creator, presence: true
-  validates :body, presence: true, if: :body_required?
-  validates :summary, presence: true
+  validates :creator, presence: true
+  validates :title, :body, :summary, presence: true, on: :create
   validates :first_published_at, recent_date: true, allow_blank: true
 
+  validates_associated :translations
+  translation_class.validates :title, :body, :summary, presence: true
 
   scope :with_title_or_summary_containing, -> *keywords {
     pattern = "(#{keywords.map { |k| Regexp.escape(k) }.join('|')})"
@@ -506,9 +507,4 @@ class Edition < ActiveRecord::Base
   def enforcer(user)
     Whitehall::Authority::Enforcer.new(user, self)
   end
-
-  def body_required?
-    true
-  end
-
 end
