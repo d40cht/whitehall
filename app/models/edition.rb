@@ -517,5 +517,4 @@ class Edition < ActiveRecord::Base
   def body_required?
     true
   end
-
 end
