@@ -177,15 +177,15 @@ class ActionView::TestCase
 end
 
 class PresenterTestCase < ActionView::TestCase
-  disable_database_queries
+  # disable_database_queries
 
-  setup do
-    Draper::ViewContext.current = @controller.view_context
-  end
+  # setup do
+  #   Draper::ViewContext.current = @controller.view_context
+  # end
 
-  def stubs_helper_method(*args)
-    Draper::ViewContext.current.stubs(*args)
-  end
+  # def stubs_helper_method(*args)
+  #   Draper::ViewContext.current.stubs(*args)
+  # end
 
   def assert_select_from(text, *args, &block)
     assert_select HTML::Document.new(text).root, *args, &block
