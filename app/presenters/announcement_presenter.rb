@@ -1,5 +1,6 @@
 class AnnouncementPresenter < Draper::Decorator
   include EditionPresenterHelper
+  delegate_all
 
   decorates :announcement
 
