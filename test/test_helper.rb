@@ -180,6 +180,7 @@ class PresenterTestCase < ActionView::TestCase
   # disable_database_queries
 
   setup do
+    flunk "Draper will be removed"
     Draper::ViewContext.current = @controller.view_context
   end
 
