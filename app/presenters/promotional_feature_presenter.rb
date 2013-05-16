@@ -1,4 +1,4 @@
-class PromotionalFeaturePresenter < Draper::Base
+class PromotionalFeaturePresenter < Draper::Decorator
   decorates :promotional_feature
   decorates_association :promotional_feature_items, with: PromotionalFeatureItemPresenter
 

@@ -1,4 +1,4 @@
-class PromotionalFeatureItemPresenter < Draper::Base
+class PromotionalFeatureItemPresenter < Draper::Decorator
   decorates :promotional_feature_item
 
   def css_classes

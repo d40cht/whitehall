@@ -1,4 +1,4 @@
-class RoleAppointmentPresenter < Draper::Base
+class RoleAppointmentPresenter < Draper::Decorator
   def role_link
     role.link
   end

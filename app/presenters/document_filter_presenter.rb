@@ -1,4 +1,4 @@
-class DocumentFilterPresenter < Draper::Base
+class DocumentFilterPresenter < Draper::Decorator
   def as_json(options = nil)
     as_hash(options)
   end

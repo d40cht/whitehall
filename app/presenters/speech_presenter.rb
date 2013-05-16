@@ -1,4 +1,4 @@
-class SpeechPresenter < Draper::Base
+class SpeechPresenter < Draper::Decorator
   include EditionPresenterHelper
 
   decorates :speech

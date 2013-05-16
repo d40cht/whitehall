@@ -1,4 +1,4 @@
-class PublicationesquePresenter < Draper::Base
+class PublicationesquePresenter < Draper::Decorator
   include EditionPresenterHelper
 
   decorates :publicationesque

@@ -1,4 +1,4 @@
-class DetailedGuidePresenter < Draper::Base
+class DetailedGuidePresenter < Draper::Decorator
   include EditionPresenterHelper
 
   decorates :detailed_guide

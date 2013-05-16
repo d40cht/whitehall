@@ -48,7 +48,7 @@ class Admin::ClassificationsController < Admin::BaseController
     model_class.name.underscore.humanize
   end
 
-  class ClassificationsPresenter < Draper::Base
+  class ClassificationsPresenter < Draper::Decorator
     def breakdown
       published_policy_ids = policies.published.select("editions.id")
       {

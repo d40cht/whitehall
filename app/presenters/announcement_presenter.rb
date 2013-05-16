@@ -1,4 +1,4 @@
-class AnnouncementPresenter < Draper::Base
+class AnnouncementPresenter < Draper::Decorator
   include EditionPresenterHelper
 
   decorates :announcement

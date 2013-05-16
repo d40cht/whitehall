@@ -1,4 +1,4 @@
-class WorldwideOrganisationPresenter < Draper::Base
+class WorldwideOrganisationPresenter < Draper::Decorator
 
   decorates :worldwide_organisation
 

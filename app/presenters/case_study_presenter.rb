@@ -1,4 +1,4 @@
-class CaseStudyPresenter < Draper::Base
+class CaseStudyPresenter < Draper::Decorator
   include EditionPresenterHelper
   include LeadImagePresenterHelper
 

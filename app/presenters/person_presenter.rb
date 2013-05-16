@@ -1,4 +1,4 @@
-class PersonPresenter < Draper::Base
+class PersonPresenter < Draper::Decorator
   decorates :person
 
   def available_in_multiple_languages?

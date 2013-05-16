@@ -1,4 +1,4 @@
-class NewsArticlePresenter < Draper::Base
+class NewsArticlePresenter < Draper::Decorator
   include EditionPresenterHelper
   include LeadImagePresenterHelper
 

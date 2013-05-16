@@ -1,4 +1,4 @@
-class RolePresenter < Draper::Base
+class RolePresenter < Draper::Decorator
   delegate :image, :name, :link, to: :current_person, prefix: :current_person
 
   def current_person

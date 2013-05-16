@@ -1,4 +1,4 @@
-class Api::WorldLocationPresenter < Draper::Base
+class Api::WorldLocationPresenter < Draper::Decorator
   class << self
     def paginate(collection)
       page = Api::Paginator.paginate(collection, h.params)

@@ -1,4 +1,4 @@
-class FeatureListPresenter < Draper::Base
+class FeatureListPresenter < Draper::Decorator
   DEFAULT_FEATURE_LIMIT = 5
 
   decorates :feature_list

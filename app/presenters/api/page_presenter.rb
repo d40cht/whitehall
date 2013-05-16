@@ -1,4 +1,4 @@
-class Api::PagePresenter < Draper::Base
+class Api::PagePresenter < Draper::Decorator
   def initialize(page)
     super(page)
   end

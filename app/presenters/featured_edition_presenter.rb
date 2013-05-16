@@ -1,4 +1,4 @@
-class FeaturedEditionPresenter < Draper::Base
+class FeaturedEditionPresenter < Draper::Decorator
   decorates :edition
 
   attr_reader :edition_organisation

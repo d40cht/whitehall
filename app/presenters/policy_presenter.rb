@@ -1,4 +1,4 @@
-class PolicyPresenter < Draper::Base
+class PolicyPresenter < Draper::Decorator
   include EditionPresenterHelper
 
   decorates :policy
