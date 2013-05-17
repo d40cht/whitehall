@@ -1,4 +1,5 @@
 class PersonPresenter < Draper::Decorator
+  delegate_all
   decorates :person
 
   def available_in_multiple_languages?
