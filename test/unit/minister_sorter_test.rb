@@ -5,7 +5,7 @@ unless defined? Rails
   require "minitest/autorun"
 end
 
-class MinisterSorterTest < MiniTest::Unit::TestCase
+class MinisterSorterTest < Minitest::Test
   class MockRole < Struct.new(:name, :seniority, :cabinet_member, :current_people)
     def cabinet_member?
       self.cabinet_member
