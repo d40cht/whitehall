@@ -38,6 +38,7 @@ gem 'shared_mustache', '~> 0.0.2'
 gem 'rails-i18n'
 gem 'globalize3'
 gem 'link_header'
+gem 'pry-rails'
 
 group :assets do
   gem 'govuk_frontend_toolkit', '0.19.2'
@@ -61,7 +62,7 @@ group :test do
   gem 'rack-test', git: 'https://github.com/alphagov/rack-test.git'
   gem 'factory_girl'
   gem 'hash_syntax'
-  gem 'mocha', '0.13.2', require: false
+  gem 'mocha', '0.14.0', require: false
   gem 'test_track', github: 'episko/test_track'
   gem 'timecop'
   gem 'webmock', require: false
