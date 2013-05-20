@@ -3,6 +3,7 @@ require 'test_helper'
 class NewsArticlePresenterTest < ActionView::TestCase
 
   setup do
+    flunk "Draper will be removed"
     Draper::ViewContext.current = @controller.view_context
 
     @organisation = create(:organisation, organisation_type: create(:organisation_type))

@@ -103,6 +103,7 @@ class ApplicationHelperTest < ActionView::TestCase
   end
 
   test "should render a list of ministerial roles" do
+    flunk "Draper will be removed"
     roles = [build(:ministerial_role, name: "Jack"), build(:ministerial_role,  name: "Jill")]
     html = render_list_of_ministerial_roles(roles) { |ministerial_role| "<p>#{ministerial_role.name}</p>" }
     assert_select_in_html(html, 'ul li p', text: "Jack")

@@ -2,6 +2,7 @@ require 'test_helper'
 
 class RoleAppointmentPresenterTest < PresenterTestCase
   setup do
+    flunk "Draper will be removed"
     role = stub_translatable_record(:role_without_organisations)
     @appointment = stub_record(:role_appointment, role: role, person: stub_translatable_record(:person))
     @presenter = RoleAppointmentPresenter.decorate(@appointment)

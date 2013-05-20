@@ -2,6 +2,7 @@ require 'test_helper'
 
 class PromotionalFeatureItemPresenterTest < ActionView::TestCase
   setup do
+    flunk "Draper will be removed"
     ApplicationController.new.set_current_view_context
   end
 

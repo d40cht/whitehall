@@ -1,5 +1,6 @@
 class PromotionalFeaturesPresenterTest < ActionView::TestCase
   setup do
+    flunk "Draper will be removed"
     ApplicationController.new.set_current_view_context
   end
 
