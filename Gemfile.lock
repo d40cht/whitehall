@@ -198,7 +198,6 @@ GEM
     multipart-post (1.2.0)
     mustache (0.99.4)
     mysql2 (0.3.11)
-    newrelic_rpm (3.5.3.25)
     nokogiri (1.5.9)
     null_logger (0.0.1)
     oauth2 (0.8.1)
@@ -400,7 +399,6 @@ DEPENDENCIES
   minitest (= 4.7.4)
   mocha (= 0.14.0)
   mysql2
-  newrelic_rpm (= 3.5.3.25)
   nokogiri
   parallel_tests
   plek (= 1.1.0)
